@@ -41,10 +41,10 @@ export async function ServicesSection() {
       className="bg-charcoal text-surface"
       aria-labelledby="services-title"
     >
-      <div className="mx-auto w-full max-w-[1440px] px-4 pt-4 pb-12 md:px-8 md:pt-6 md:pb-14 lg:px-12 lg:pt-8 lg:pb-16">
+      <div className="mx-auto w-full max-w-[1440px] px-4 pt-4 pb-10 md:px-8 md:pt-6 md:pb-10 lg:px-12 lg:pt-6 lg:pb-12">
         <Reveal>
-          <div className="flex flex-col gap-4 pb-8 md:flex-row md:items-end md:justify-between md:pb-10">
-            <div className="space-y-3">
+          <div className="flex flex-col gap-4 pb-8 md:flex-row md:items-end md:justify-between md:pb-6">
+            <div className="space-y-2">
               <p className="font-heading text-xs font-semibold tracking-[0.22em] text-brand uppercase">
                 {t("eyebrow")}
               </p>
@@ -88,7 +88,7 @@ export async function ServicesSection() {
               >
                 <Link
                   href={href}
-                  className="focus-ring group relative flex h-full flex-col gap-3 py-6 transition-colors hover:bg-white/[0.03] sm:px-6 lg:py-7 xl:px-8"
+                  className="focus-ring group relative flex h-full flex-col gap-2.5 py-5 transition-colors hover:bg-white/[0.03] sm:px-6 lg:py-5 xl:px-7"
                 >
                   <span
                     className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-brand transition-transform duration-300 group-hover:scale-x-100"
@@ -108,7 +108,7 @@ export async function ServicesSection() {
                   <p className="text-sm leading-relaxed text-surface/65">
                     {t(`panels.${key}.summary`)}
                   </p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 pt-1 text-sm font-medium text-surface transition-colors group-hover:text-brand">
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-surface transition-colors group-hover:text-brand">
                     {t(`panels.${key}.cta`)}
                     <ArrowRight
                       className="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5"

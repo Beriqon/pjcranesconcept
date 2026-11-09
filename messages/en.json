@@ -378,27 +378,27 @@
       "panels": {
         "buy": {
           "title": "Available cranes",
-          "summary": "Browse immediately available mobile and crawler cranes with clear specifications and current details.",
+          "summary": "Mobile and crawler cranes, available now.",
           "cta": "View inventory"
         },
         "sell": {
           "title": "Sell your crane",
-          "summary": "We assess your machine, market position and the right sales route.",
+          "summary": "Valuation and the right sales route.",
           "cta": "Sell your crane"
         },
         "find": {
           "title": "Crane wanted",
-          "summary": "Can't find the right machine in stock? We search within our international network.",
+          "summary": "Not in stock? We find it for you.",
           "cta": "Submit a search request"
         },
         "transport": {
           "title": "Transport & shipping",
-          "summary": "Guidance on transporting from the collection site to the final destination.",
+          "summary": "Transport from pickup to destination.",
           "cta": "View transport service"
         },
         "documentation": {
           "title": "Documentation & export",
-          "summary": "Support with export documents, handover and international processing.",
+          "summary": "Export documents and international handover.",
           "cta": "View export guidance"
         }
       }

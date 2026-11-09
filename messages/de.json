@@ -378,27 +378,27 @@
       "panels": {
         "buy": {
           "title": "Verfügbare Krane",
-          "summary": "Sofort verfügbare Mobile und Raupenkrane mit klaren Spezifikationen und aktuellen Angaben.",
+          "summary": "Sofort verfügbare Mobil- und Raupenkrane.",
           "cta": "Bestand ansehen"
         },
         "sell": {
           "title": "Kran verkaufen",
-          "summary": "Wir bewerten Ihre Maschine, Marktposition und die passende Verkaufsroute.",
+          "summary": "Bewertung und die passende Verkaufsroute.",
           "cta": "Kran verkaufen"
         },
         "find": {
           "title": "Kran gesucht",
-          "summary": "Die passende Maschine nicht im Bestand? Wir suchen in unserem internationalen Netzwerk.",
+          "summary": "Nicht im Bestand? Wir finden sie für Sie.",
           "cta": "Suchauftrag einreichen"
         },
         "transport": {
           "title": "Transport & Versand",
-          "summary": "Begleitung beim Transport vom Abholort bis zum Zielort.",
+          "summary": "Transport vom Abholort bis zum Ziel.",
           "cta": "Transportservice ansehen"
         },
         "documentation": {
           "title": "Dokumentation & Export",
-          "summary": "Unterstützung bei Exportdokumenten, Übergabe und internationaler Abwicklung.",
+          "summary": "Exportdokumente und internationale Übergabe.",
           "cta": "Exportbegleitung ansehen"
         }
       }

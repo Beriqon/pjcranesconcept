@@ -378,27 +378,27 @@
       "panels": {
         "buy": {
           "title": "Grues disponibles",
-          "summary": "Consultez des grues mobiles et sur chenilles disponibles immédiatement, avec des spécifications claires et des informations à jour.",
+          "summary": "Grues mobiles et sur chenilles disponibles.",
           "cta": "Voir le stock"
         },
         "sell": {
           "title": "Vendez votre grue",
-          "summary": "Nous évaluons votre machine, sa position marché et la voie de vente adaptée.",
+          "summary": "Évaluation et la bonne voie de vente.",
           "cta": "Vendez votre grue"
         },
         "find": {
           "title": "Grue recherchée",
-          "summary": "La bonne machine n'est pas en stock ? Nous cherchons dans notre réseau international.",
+          "summary": "Pas en stock ? Nous la trouvons pour vous.",
           "cta": "Soumettre une recherche"
         },
         "transport": {
           "title": "Transport et expédition",
-          "summary": "Accompagnement pour le transport du lieu d'enlèvement à la destination finale.",
+          "summary": "Transport du lieu d'enlèvement à destination.",
           "cta": "Voir le service transport"
         },
         "documentation": {
           "title": "Documentation et export",
-          "summary": "Aide pour les documents d'export, la remise et le traitement international.",
+          "summary": "Documents d'export et remise internationale.",
           "cta": "Voir l'accompagnement export"
         }
       }

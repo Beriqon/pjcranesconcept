@@ -378,27 +378,27 @@
       "panels": {
         "buy": {
           "title": "Beschikbare kranen",
-          "summary": "Bekijk direct beschikbare mobiele en rupskranen met duidelijke specificaties en actuele informatie.",
+          "summary": "Direct beschikbare mobiele en rupskranen.",
           "cta": "Bekijk voorraad"
         },
         "sell": {
           "title": "Verkoop uw kraan",
-          "summary": "Wij beoordelen uw machine, marktpositie en de geschikte verkooproute.",
+          "summary": "Taxatie en de juiste verkooproute.",
           "cta": "Verkoop uw kraan"
         },
         "find": {
           "title": "Kraan gezocht",
-          "summary": "Staat de juiste machine niet in de voorraad? Wij zoeken binnen ons internationale netwerk.",
+          "summary": "Niet op voorraad? Wij zoeken het voor u.",
           "cta": "Dien zoekopdracht in"
         },
         "transport": {
           "title": "Transport & verzending",
-          "summary": "Begeleiding bij het vervoer van de afhaallocatie naar de eindbestemming.",
+          "summary": "Vervoer van afhaallocatie tot bestemming.",
           "cta": "Bekijk transportservice"
         },
         "documentation": {
           "title": "Documentatie & export",
-          "summary": "Ondersteuning bij exportdocumenten, overdracht en internationale afhandeling.",
+          "summary": "Exportdocumenten en internationale overdracht.",
           "cta": "Bekijk exportbegeleiding"
         }
       }

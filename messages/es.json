@@ -378,27 +378,27 @@
       "panels": {
         "buy": {
           "title": "Grúas disponibles",
-          "summary": "Consulte grúas móviles y sobre orugas disponibles de inmediato, con especificaciones claras e información actual.",
+          "summary": "Grúas móviles y sobre orugas disponibles.",
           "cta": "Ver inventario"
         },
         "sell": {
           "title": "Venda su grúa",
-          "summary": "Evaluamos su máquina, posición de mercado y la ruta de venta adecuada.",
+          "summary": "Valoración y la ruta de venta adecuada.",
           "cta": "Venda su grúa"
         },
         "find": {
           "title": "Grúa buscada",
-          "summary": "¿No encuentra la máquina adecuada en stock? Buscamos dentro de nuestra red internacional.",
+          "summary": "¿No está en stock? La buscamos por usted.",
           "cta": "Enviar solicitud de búsqueda"
         },
         "transport": {
           "title": "Transporte y envío",
-          "summary": "Acompañamiento en el transporte desde el punto de recogida hasta el destino final.",
+          "summary": "Transporte desde la recogida hasta el destino.",
           "cta": "Ver servicio de transporte"
         },
         "documentation": {
           "title": "Documentación y exportación",
-          "summary": "Apoyo con documentos de exportación, entrega y gestión internacional.",
+          "summary": "Documentos de exportación y entrega internacional.",
           "cta": "Ver acompañamiento de exportación"
         }
       }
