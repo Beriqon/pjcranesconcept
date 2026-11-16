@@ -1,3 +1,4 @@
+import { getWebsiteOffices } from "@/lib/crm-offices";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -87,7 +88,7 @@ export async function InternationalBand() {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <InternationalNetworkMap copy={mapCopy} />
+          <InternationalNetworkMap offices={await getWebsiteOffices()} copy={mapCopy} />
         </Reveal>
       </div>
     </section>

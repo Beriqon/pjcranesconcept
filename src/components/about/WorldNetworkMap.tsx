@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "motion/react";
 import { cn } from "cn";
 import { Link } from "@/i18n/navigation";
 import {
-  offices,
   type NetworkOfficeId,
   type Office,
   type OfficeRegion,
@@ -53,14 +52,16 @@ export type NetworkMapCopy = {
 };
 
 type WorldNetworkMapProps = {
+  offices: readonly Office[];
   copy: NetworkMapCopy;
   className?: string;
 };
 
 function placeLabel(copy: NetworkMapCopy, office: Office): string {
   const labels = copy.offices[office.id];
-  if (labels.city) {
-    return `${labels.city}, ${labels.country}`;
+  const city = office.city || labels.city;
+  if (city) {
+    return `${city}, ${labels.country}`;
   }
   return labels.country;
 }
@@ -132,11 +133,11 @@ function OfficePanel({
         </div>
       </dl>
 
-      {office.street && office.postalCode && labels.city ? (
+      {office.street || office.postalCode || office.city ? (
         <p className="mt-3 text-sm text-surface/70">
           {office.street}
           <br />
-          {office.postalCode} {labels.city}
+          {[office.postalCode, office.city || labels.city].filter(Boolean).join(" ")}
         </p>
       ) : null}
 
@@ -170,7 +171,7 @@ function OfficePanel({
   );
 }
 
-export function WorldNetworkMap({ copy, className }: WorldNetworkMapProps) {
+export function WorldNetworkMap({ copy, offices, className }: WorldNetworkMapProps) {
   const reactId = useId();
   const clipId = `${reactId}-clip`;
   const glowId = `${reactId}-glow`;
@@ -512,6 +513,11 @@ export function WorldNetworkMap({ copy, className }: WorldNetworkMapProps) {
               {copy.regions[activeOffice.region]} ·{" "}
               {copy.types[activeOffice.type]}
             </p>
+            {activeOffice.street || activeOffice.postalCode ? (
+              <p className="mt-2 text-sm text-surface/70">
+                {[activeOffice.street, [activeOffice.postalCode, activeOffice.city].filter(Boolean).join(" ")].filter(Boolean).join(", ")}
+              </p>
+            ) : null}
             {activeOffice.phone ? (
               <a
                 href={`tel:${activeOffice.phone.tel}`}

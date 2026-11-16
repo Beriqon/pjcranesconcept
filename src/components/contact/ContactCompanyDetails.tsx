@@ -1,3 +1,4 @@
+import { getWebsiteHeadquarters } from "@/lib/crm-offices";
 import { getTranslations } from "next-intl/server";
 import {
   Accordion,
@@ -9,6 +10,7 @@ import { Reveal } from "@/components/shared/Reveal";
 import { company } from "@/data/company";
 
 export async function ContactCompanyDetails() {
+  const headquarters = await getWebsiteHeadquarters();
   const t = await getTranslations("Contact.company");
   const tFooter = await getTranslations("Footer");
 
@@ -38,8 +40,7 @@ export async function ContactCompanyDetails() {
                 {t("address")}
               </dt>
               <dd className="mt-1 text-sm text-foreground">
-                {company.address.street}, {company.address.postalCode}{" "}
-                {company.address.city}, {company.address.country}
+                {[headquarters.street, [headquarters.postalCode, headquarters.city].filter(Boolean).join(" "), headquarters.country].filter(Boolean).join(", ")}
               </dd>
             </div>
             <div>

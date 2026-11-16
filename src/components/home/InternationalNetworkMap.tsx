@@ -3,7 +3,6 @@
 import { useId, useState } from "react";
 import { cn } from "cn";
 import {
-  offices,
   type NetworkOfficeId,
   type Office,
   type OfficeRegion,
@@ -45,6 +44,7 @@ export type InternationalNetworkMapCopy = {
 };
 
 type InternationalNetworkMapProps = {
+  offices: readonly Office[];
   copy: InternationalNetworkMapCopy;
   className?: string;
 };
@@ -54,8 +54,9 @@ function placeLabel(
   office: Office,
 ): string {
   const labels = copy.offices[office.id];
-  if (labels.city) {
-    return `${labels.city}, ${labels.country}`;
+  const city = office.city || labels.city;
+  if (city) {
+    return `${city}, ${labels.country}`;
   }
   return labels.country;
 }
@@ -98,11 +99,11 @@ function OfficeDetail({
         </div>
       </dl>
 
-      {office.street && office.postalCode && labels.city ? (
+      {office.street || office.postalCode || office.city ? (
         <p className="text-sm text-surface/70">
           {office.street}
           <br />
-          {office.postalCode} {labels.city}
+          {[office.postalCode, office.city || labels.city].filter(Boolean).join(" ")}
         </p>
       ) : null}
 
@@ -132,6 +133,7 @@ function OfficeDetail({
 
 export function InternationalNetworkMap({
   copy,
+  offices,
   className,
 }: InternationalNetworkMapProps) {
   const reactId = useId();
@@ -255,9 +257,9 @@ export function InternationalNetworkMap({
                 <p>
                   {copy.regions[office.region]} — {copy.types[office.type]}
                 </p>
-                {office.street && office.postalCode && labels.city ? (
+                {office.street || office.postalCode || office.city ? (
                   <p>
-                    {office.street}, {office.postalCode} {labels.city}
+                    {[office.street, [office.postalCode, office.city || labels.city].filter(Boolean).join(" ")].filter(Boolean).join(", ")}
                   </p>
                 ) : null}
                 {office.phone ? (

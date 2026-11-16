@@ -1,3 +1,4 @@
+import { getWebsiteOffices } from "@/lib/crm-offices";
 import { getTranslations } from "next-intl/server";
 import { Reveal } from "@/components/shared/Reveal";
 import {
@@ -68,7 +69,7 @@ export async function WorldwideNetwork() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <WorldNetworkMap copy={copy} />
+          <WorldNetworkMap offices={await getWebsiteOffices()} copy={copy} />
         </Reveal>
       </div>
     </section>

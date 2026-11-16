@@ -1,3 +1,4 @@
+import { getWebsiteHeadquarters } from "@/lib/crm-offices";
 import { getTranslations } from "next-intl/server";
 import {
   Mail,
@@ -8,22 +9,23 @@ import {
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { company, getHeadquartersMapUrl } from "@/data/company";
-import { officesOverviewHref } from "@/data/offices";
+import { getOfficeMapUrl, officesOverviewHref } from "@/data/offices";
 
 export async function ContactDetails() {
   const t = await getTranslations("Contact.details");
   const tFooter = await getTranslations("Footer");
-  const mapUrl = getHeadquartersMapUrl();
+  const headquarters = await getWebsiteHeadquarters();
+  const mapUrl = getOfficeMapUrl(headquarters) ?? getHeadquartersMapUrl();
 
   const rows = [
-    {
+    ...(headquarters.phone ? [{
       id: "general",
       icon: Phone,
       label: t("general"),
-      href: `tel:${company.phone.tel}`,
-      value: company.phone.display,
+      href: `tel:${headquarters.phone.tel}`,
+      value: headquarters.phone.display,
       external: false,
-    },
+    }] : []),
     {
       id: "sales",
       icon: Smartphone,
@@ -94,11 +96,11 @@ export async function ContactDetails() {
           <address className="text-sm leading-relaxed text-foreground not-italic">
             {company.legalName}
             <br />
-            {company.address.street}
+            {headquarters.street}
             <br />
-            {company.address.postalCode} {company.address.city}
+            {headquarters.postalCode} {headquarters.city}
             <br />
-            {company.address.country}
+            {headquarters.country}
           </address>
           <a
             href={mapUrl}

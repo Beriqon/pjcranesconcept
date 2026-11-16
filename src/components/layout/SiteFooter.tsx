@@ -1,3 +1,4 @@
+import { getWebsiteHeadquarters } from "@/lib/crm-offices";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { BrandLogo } from "@/components/brand/BrandLogo";
@@ -9,7 +10,6 @@ import {
   getHeadquartersMapUrl,
 } from "@/data/company";
 import {
-  getHeadquartersOffice,
   getOfficeMapUrl,
   officesOverviewHref,
 } from "@/data/offices";
@@ -36,7 +36,7 @@ export async function SiteFooter() {
   const t = await getTranslations("Footer");
   const tNav = await getTranslations("Nav");
   const year = new Date().getFullYear();
-  const headquarters = getHeadquartersOffice();
+  const headquarters = await getWebsiteHeadquarters();
   const mapUrl =
     getOfficeMapUrl(headquarters) ?? getHeadquartersMapUrl();
   const socialLinks = getConfiguredSocialLinks();
@@ -146,9 +146,9 @@ export async function SiteFooter() {
                 <span className="min-w-[4.5rem] text-xs text-surface/55">
                   {t("phoneGeneral")}
                 </span>
-                <a href={`tel:${company.phone.tel}`} className={linkClass}>
-                  {company.phone.display}
-                </a>
+                {headquarters.phone ? <a href={`tel:${headquarters.phone.tel}`} className={linkClass}>
+                  {headquarters.phone.display}
+                </a> : null}
               </p>
               <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                 <span className="min-w-[4.5rem] text-xs text-surface/55">

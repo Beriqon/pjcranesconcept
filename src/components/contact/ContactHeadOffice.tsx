@@ -1,3 +1,4 @@
+import { getWebsiteHeadquarters, getWebsiteOffices } from "@/lib/crm-offices";
 import { getTranslations } from "next-intl/server";
 import { Phone } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -8,17 +9,18 @@ import {
   getHeadquartersMapUrl,
   getHeadquartersOsmEmbedUrl,
 } from "@/data/company";
-import { officeCount, offices, officesOverviewHref } from "@/data/offices";
+import { officeCount, getOfficeMapUrl, officesOverviewHref } from "@/data/offices";
 
 export async function ContactHeadOffice() {
   const t = await getTranslations("Contact.headOffice");
   const tNetwork = await getTranslations("About.network.offices");
-  const directionsUrl = getHeadquartersMapUrl();
+  const headquarters = await getWebsiteHeadquarters();
+  const directionsUrl = getOfficeMapUrl(headquarters) ?? getHeadquartersMapUrl();
   const embedUrl = getHeadquartersOsmEmbedUrl();
 
-  const countries = offices
+  const countries = (await getWebsiteOffices())
     .map((office) => {
-      const city = tNetwork(`${office.id}.city`);
+      const city = office.city || tNetwork(`${office.id}.city`);
       const country = tNetwork(`${office.id}.country`);
       if (city) return `${city}, ${country}`;
       return country;
@@ -47,11 +49,11 @@ export async function ContactHeadOffice() {
 
             <address className="space-y-1 text-base leading-relaxed text-foreground not-italic">
               <p className="font-medium">{company.legalName}</p>
-              <p>{company.address.street}</p>
+              <p>{headquarters.street}</p>
               <p>
-                {company.address.postalCode} {company.address.city}
+                {headquarters.postalCode} {headquarters.city}
               </p>
-              <p>{company.address.country}</p>
+              <p>{headquarters.country}</p>
             </address>
 
             <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
@@ -63,13 +65,13 @@ export async function ContactHeadOffice() {
               >
                 {t("directions")}
               </a>
-              <a
-                href={`tel:${company.phone.tel}`}
+              {headquarters.phone ? <a
+                href={`tel:${headquarters.phone.tel}`}
                 className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius)] border border-line bg-surface px-5 text-sm font-medium transition-colors hover:border-charcoal"
               >
                 <Phone className="size-4 text-brand" aria-hidden />
                 {t("callOffice")}
-              </a>
+              </a> : null}
               <Link
                 href={officesOverviewHref}
                 className="focus-ring inline-flex min-h-11 items-center justify-center rounded-[var(--radius)] border border-line bg-surface px-5 text-sm font-medium transition-colors hover:border-charcoal"

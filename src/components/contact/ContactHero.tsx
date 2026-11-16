@@ -1,3 +1,4 @@
+import { getWebsiteHeadquarters } from "@/lib/crm-offices";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight, Mail, MapPin, Phone, Smartphone } from "lucide-react";
@@ -7,6 +8,7 @@ import { company } from "@/data/company";
 import { contactImages } from "@/data/contact";
 
 export async function ContactHero() {
+  const { phone } = await getWebsiteHeadquarters();
   const t = await getTranslations("Contact");
   const tNav = await getTranslations("Nav");
   const tFooter = await getTranslations("Footer");
@@ -80,13 +82,13 @@ export async function ContactHero() {
                   aria-hidden
                 />
               </a>
-              <a
-                href={`tel:${company.phone.tel}`}
+              {phone ? <a
+                href={`tel:${phone.tel}`}
                 className="focus-ring inline-flex h-11 items-center justify-center gap-2 rounded-[var(--radius)] border border-white/25 px-5 text-sm font-medium text-surface transition-colors hover:border-brand hover:text-brand sm:h-12 sm:px-6"
               >
                 <Phone className="size-4" aria-hidden />
                 {t("hero.ctaCall")}
-              </a>
+              </a> : null}
             </div>
           </Reveal>
 
@@ -94,8 +96,8 @@ export async function ContactHero() {
             delay={0.05}
             className="mt-8 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2 lg:grid-cols-4"
           >
-            <a
-              href={`tel:${company.phone.tel}`}
+            {phone ? <a
+              href={`tel:${phone.tel}`}
               className="focus-ring group flex items-start gap-2.5 rounded-[var(--radius)] py-1 transition-colors hover:text-brand"
             >
               <Phone
@@ -107,10 +109,10 @@ export async function ContactHero() {
                   {tFooter("phoneGeneral")}
                 </span>
                 <span className="mt-0.5 block text-sm tabular-nums text-surface/90 group-hover:text-brand">
-                  {company.phone.display}
+                  {phone.display}
                 </span>
               </span>
-            </a>
+            </a> : null}
             <a
               href={`tel:${company.mobile.tel}`}
               className="focus-ring group flex items-start gap-2.5 rounded-[var(--radius)] py-1 transition-colors hover:text-brand"

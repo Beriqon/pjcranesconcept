@@ -58,3 +58,7 @@ npm run dev
 npm run build
 npm run lint
 ```
+
+## Kantoorgegevens uit PJCRM
+
+Zet `CRM_API_URL` op het bereikbare HTTPS-basisadres van PJCRM in de websiteomgeving. De kantoorsecties lezen `/api/public/offices` bij het laden van een pagina. Zonder koppeling of tijdens een storing gebruikt de website de bestaande kantoorvermeldingen.
